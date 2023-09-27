@@ -6,7 +6,7 @@ type FrogProps = {
   color: string;
 };
 
-type ButtonProps = {
+type RoundButtonProps = {
   exNumber: number;
   onPressHandler: Function;
 };
@@ -23,8 +23,13 @@ const Frog = (props: FrogProps) => {
   );
 };
 
-const RoundButton = (props: ButtonProps) => {
-
+const RoundButton = (props: RoundButtonProps) => {
+  return (
+    <Pressable style={styles.button}
+      onPress={() => props.onPressHandler(props.exNumber)}>
+      <Text>№{props.exNumber}</Text>
+    </Pressable>
+  );
 }
 
 const Lake = () => {
@@ -52,54 +57,18 @@ const Lake = () => {
         <Frog name='3' color='red' />
       </SafeAreaView>
       <SafeAreaView style={styles.buttons}>
-        <Pressable
-          onPress={() => { SetIsButton(1); }}
-          style={styles.button}
-        ><Text style={styles.textbutton}>№1</Text></Pressable>
-        <Pressable
-          onPress={() => { SetIsButton(2); }}
-          style={styles.button}
-        ><Text style={styles.textbutton}>№2</Text></Pressable>
-        <Pressable
-          onPress={() => { SetIsButton(3); }}
-          style={styles.button}
-        ><Text style={styles.textbutton}>№3</Text></Pressable>
-        <Pressable
-          onPress={() => { SetIsButton(4); }}
-          style={styles.button}
-        ><Text style={styles.textbutton}>№4</Text></Pressable>
-        <Pressable
-          onPress={() => { SetIsButton(5); }}
-          style={styles.button}
-        ><Text style={styles.textbutton}>№5</Text></Pressable>
-        <Pressable
-          onPress={() => { SetIsButton(6); }}
-          style={styles.button}
-        ><Text style={styles.textbutton}>№6</Text></Pressable>
-        <Pressable
-          onPress={() => { SetIsButton(7); }}
-          style={styles.button}
-        ><Text style={styles.textbutton}>№7</Text></Pressable>
-        <Pressable
-          onPress={() => { SetIsButton(8); }}
-          style={styles.button}
-        ><Text style={styles.textbutton}>№8</Text></Pressable>
-        <Pressable
-          onPress={() => { SetIsButton(9); }}
-          style={styles.button}
-        ><Text style={styles.textbutton}>№9</Text></Pressable>
-        <Pressable
-          onPress={() => { SetIsButton(10); }}
-          style={styles.button}
-        ><Text style={styles.textbutton}>№10</Text></Pressable>
-        <Pressable
-          onPress={() => { SetIsButton(11); }}
-          style={styles.button}
-        ><Text style={styles.textbutton}>№11</Text></Pressable>
-        <Pressable
-          onPress={() => { SetIsButton(12); }}
-          style={styles.button}
-        ><Text style={styles.textbutton}>№12</Text></Pressable>
+        <RoundButton onPressHandler={SetIsButton} exNumber={1}></RoundButton>
+        <RoundButton onPressHandler={SetIsButton} exNumber={2}></RoundButton>
+        <RoundButton onPressHandler={SetIsButton} exNumber={3}></RoundButton>
+        <RoundButton onPressHandler={SetIsButton} exNumber={4}></RoundButton>
+        <RoundButton onPressHandler={SetIsButton} exNumber={5}></RoundButton>
+        <RoundButton onPressHandler={SetIsButton} exNumber={6}></RoundButton>
+        <RoundButton onPressHandler={SetIsButton} exNumber={7}></RoundButton>
+        <RoundButton onPressHandler={SetIsButton} exNumber={8}></RoundButton>
+        <RoundButton onPressHandler={SetIsButton} exNumber={9}></RoundButton>
+        <RoundButton onPressHandler={SetIsButton} exNumber={10}></RoundButton>
+        <RoundButton onPressHandler={SetIsButton} exNumber={11}></RoundButton>
+        <RoundButton onPressHandler={SetIsButton} exNumber={12}></RoundButton>
       </SafeAreaView>
       <Text style={styles.Text1}>Текущая задача : {isButton}</Text>
     </View>
